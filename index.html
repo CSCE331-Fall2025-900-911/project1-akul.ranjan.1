@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Akul Ranjan's Portfolio</title>
+  <title>Akul Ranjan — Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portfolio website for Akul Ranjan, Texas A&M University. Projects, qualifications, and service.">
+  <link id="theme" rel="stylesheet" href="css/style-classic.css">
   <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="css/style-classic.css">
 </head>
 <body>
   <a href="#main" class="visually-hidden">Skip to content</a>
@@ -18,16 +17,18 @@
       <a href="portfolio.html">Portfolio</a>
       <a href="qualifications.html">Qualifications</a>
       <a href="service.html">Service</a>
+      <a href="genai.html">AI</a>
     </nav>
+    <button id="styleToggle" type="button" style="margin-left:8px;padding:6px 10px;border:1px solid #ddd;border-radius:8px;background:#fff;cursor:pointer;">Switch Style</button>
   </header>
 
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
       <h1 id="hero-title">Hi, I’m Akul — CS @ Texas A&amp;M</h1>
-      <p>I am a computer science student at Texas A&M University who enjoys turning promising ideas into practical, reliable software. My strongest work lives at the intersection of applied AI and sound engineering: building conversational systems that feel helpful, fast, and predictable; designing APIs that are clear and resilient; and shaping developer workflows so shipping becomes routine rather than risky. Teammates describe me as steady under pressure, curious about how users actually work, and disciplined about measurement—because reliability is something you prove, not declare. </p>
+      <p>I am a computer science student at Texas A&amp;M University who enjoys turning promising ideas into practical, reliable software. My strongest work lives at the intersection of applied AI and sound engineering: building conversational systems that feel helpful, fast, and predictable; designing APIs that are clear and resilient; and shaping developer workflows so shipping becomes routine rather than risky. Teammates describe me as steady under pressure, curious about how users actually work, and disciplined about measurement—because reliability is something you prove, not declare.</p>
       <p><a href="portfolio.html">See projects</a> · <a href="qualifications.html">View resume</a></p>
-      <div class="hero-graphic" aria-hidden="true"><img src="img/akulgreenpic.jpg" alt="Akul Ranjan" width="240" height="240" loading="eager">
-
+      <div class="hero-graphic">
+        <img src="img/akulgreenpic.jpg" alt="Akul Ranjan" width="240" height="240" loading="eager">
       </div>
     </section>
 
@@ -44,7 +45,7 @@
       <h2 id="highlights-title">Highlights</h2>
       <div class="cards">
         <article class="card">
-          <h3>Tensa — Voice Assistant MVP</h3>
+          <h3>Voice Assistant MVP</h3>
           <p>Voice-driven agent with calendar integration and TTS responses.</p>
           <p><a href="portfolio.html#tensa">Project details</a></p>
         </article>
@@ -61,8 +62,8 @@
       </div>
     </section>
 
-    <section aria-labelledby="logos-title">
-      <h2 id="logos-title" class="visually-hidden">Links</h2>
+    <section aria-labelledby="links-title">
+      <h2 id="links-title" class="visually-hidden">Links</h2>
       <ul class="logos">
         <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></li>
         <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
@@ -74,21 +75,14 @@
     </section>
 
     <blockquote class="pullquote">
-      <p>“What motivates me is simple: build tools people can trust. Whether I am improving an API’s latency, tightening up a deployment pipeline, or reducing the cost of AI inference with smarter prompting, I’m happiest when a system becomes observably better. I bring a product mindset to my projects—define the smallest useful version, ship it, learn from real feedback, then iterate—while keeping the codebase readable, testable, and well-instrumented. In a team setting, I value clear ownership, lightweight processes, and the kind of candid code reviews that make everyone better.”</p>
+      <p>“Build small, ship often, learn fast.”</p>
     </blockquote>
-
-    <section aria-label="Background color switcher" style="margin:12px 0;">
-        <button type="button" data-color="#ffffff">Light</button>
-        <button type="button" data-color="#f0f4ff">Blue</button>
-        <button type="button" data-color="#fff6e5">Peach</button>
-        <button type="button" id="bg-reset">Reset</button>
-    </section>
-
   </main>
 
   <footer>
-    <small>© 2025 Akul Ranjan · <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></small>
+    <small>© 2025 Akul Ranjan</small>
   </footer>
-<script src="functions.js"></script>
+
+  <script src="functions.js"></script>
 </body>
 </html>
