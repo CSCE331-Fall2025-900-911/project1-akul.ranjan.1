@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AI — Akul Ranjan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root{color-scheme:light}
+    *{box-sizing:border-box} html,body{margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#fafafa;color:#222;line-height:1.55}
+    header{background:#fff;border-bottom:1px solid #ddd;padding:10px 16px;display:flex;justify-content:space-between;align-items:center}
+    .brand{display:flex;align-items:center;gap:8px;font-weight:700}
+    .brand span{display:grid;place-items:center;width:28px;height:28px;border:1px solid #222;border-radius:50%;font-weight:800}
+    nav a{margin-left:8px;padding:6px 8px;border-radius:6px;text-decoration:none;color:inherit}
+    nav a:hover{background:#f2f2f2}
+    .wrap{max-width:1000px;margin:0 auto;padding:16px}
+    .grid{display:grid;grid-template-columns:2fr 1fr;gap:12px}
+    .panel{background:#fff;border:1px solid #ddd;border-radius:8px;padding:12px}
+    .controls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+    .btn{padding:6px 10px;border:1px solid #ddd;background:#fff;border-radius:999px;cursor:pointer}
+    textarea{width:100%;min-height:120px;padding:8px;border:1px solid #ccc;border-radius:6px;font:inherit;background:#fff}
+    .steps{list-style:none;padding:0;display:grid;gap:8px}
+    .steps li{background:#fff;border:1px solid #ddd;border-radius:8px;padding:8px}
+    .steps input{width:100%;border:1px solid #ccc;border-radius:6px;padding:6px;font:inherit}
+    .output{min-height:180px;white-space:pre-wrap}
+    footer{text-align:center;color:#666;border-top:1px solid #ddd;background:#fff;padding:12px;margin-top:16px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <a href="#main" style="position:absolute;left:-9999px;">Skip to content</a>
+  <header>
+    <div class="brand"><span>AR</span><strong>Akul Ranjan</strong></div>
+    <nav aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="qualifications.html">Qualifications</a>
+      <a href="service.html">Service</a>
+      <a href="genai.html" aria-current="page">AI</a>
+    </nav>
+  </header>
+  <main id="main" class="wrap">
+    <h1>Generative AI Showcase</h1>
+    <div class="grid" aria-label="AI output and prompt build">
+      <section class="panel">
+        <h2>AI Output</h2>
+        <div id="aiOutput" class="output" contenteditable="true">Paste or type the final AI-generated content here.</div>
+      </section>
+      <aside class="panel">
+        <h2>Prompt Build</h2>
+        <ul id="steps" class="steps" aria-live="polite">
+          <li><input type="text" placeholder="Step 1: initial prompt"></li>
+          <li><input type="text" placeholder="Step 2: add constraint/detail"></li>
+          <li><input type="text" placeholder="Step 3: refine tone/format"></li>
+        </ul>
+      </aside>
+    </div>
+    <div class="controls" role="group" aria-label="Prompt controls">
+      <button class="btn" id="addStep" type="button">Add step</button>
+      <button class="btn" id="copyPrompt" type="button">Copy final prompt</button>
+      <button class="btn" id="clearAll" type="button">Clear</button>
+    </div>
+    <section class="panel">
+      <h2>Final Prompt</h2>
+      <textarea id="finalPrompt" placeholder="Paste the exact final prompt you used here."></textarea>
+    </section>
+  </main>
+  <footer><small>© 2025 Akul Ranjan</small></footer>
+  <script>
+    const steps=document.getElementById('steps');const finalPrompt=document.getElementById('finalPrompt');
+    try{const sp=localStorage.getItem('ai_final_prompt');if(sp)finalPrompt.value=sp;const ss=JSON.parse(localStorage.getItem('ai_steps')||"[]");if(ss.length){steps.innerHTML="";ss.forEach(t=>{const li=document.createElement('li');const input=document.createElement('input');input.type='text';input.value=t;li.appendChild(input);steps.appendChild(li);});}}catch(e){}
+    function save(){try{const vals=Array.from(steps.querySelectorAll('input')).map(i=>i.value).filter(Boolean);localStorage.setItem('ai_steps',JSON.stringify(vals));localStorage.setItem('ai_final_prompt',finalPrompt.value);}catch(e){}}
+    document.getElementById('addStep').onclick=()=>{const li=document.createElement('li');const input=document.createElement('input');input.type='text';input.placeholder=`Step ${steps.children.length+1}: add detail`;li.appendChild(input);steps.appendChild(li);input.focus();save();};
+    document.getElementById('copyPrompt').onclick=async()=>{try{await navigator.clipboard.writeText(finalPrompt.value||"");}catch(e){}};
+    document.getElementById('clearAll').onclick=()=>{finalPrompt.value="";steps.innerHTML="";save();};
+    steps.addEventListener('input',save);finalPrompt.addEventListener('input',save);
+  </script>
+</body>
+</html>
