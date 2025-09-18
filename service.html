@@ -9,17 +9,18 @@
 </head>
 <body>
   <a href="#main" class="visually-hidden">Skip to content</a>
-
   <header>
-    <div class="brand"><span aria-hidden="true">AR</span> <strong>Akul Ranjan</strong></div>
-    <nav aria-label="Primary">
-      <a href="index.html">Home</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="qualifications.html">Qualifications</a>
-      <a href="service.html" aria-current="page">Service</a>
-      <a href="genai.html">AI</a>
-    </nav>
-    <button id="styleToggle" type="button" style="margin-left:8px;padding:6px 10px;border:1px solid #ddd;border-radius:8px;background:#fff;cursor:pointer;">Switch Style</button>
+    <div class="bar">
+      <div class="brand"><span aria-hidden="true">AR</span> <strong>Akul Ranjan</strong></div>
+      <nav aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="qualifications.html">Qualifications</a>
+        <a href="service.html" aria-current="page">Service</a>
+        <a href="genai.html">AI</a>
+      </nav>
+      <button id="styleToggle" class="btn btn-ghost">Switch Style</button>
+    </div>
   </header>
 
   <main id="main">
@@ -30,8 +31,8 @@
         <h2>Peer Mentoring</h2>
         <p>Sharing study strategies, debugging workflows, and interview practice with classmates.</p>
         <p>
-          <a href="https://www.hackerrank.com/" target="_blank" rel="noopener">HackerRank</a> ·
-          <a href="https://leetcode.com/" target="_blank" rel="noopener">LeetCode</a>
+          <a class="btn" href="https://www.hackerrank.com/" target="_blank" rel="noopener">HackerRank</a>
+          <a class="btn btn-primary" href="https://leetcode.com/" target="_blank" rel="noopener">LeetCode</a>
         </p>
       </article>
 
@@ -39,8 +40,8 @@
         <h2>STEM Outreach</h2>
         <p>Helping facilitate beginner workshops, setting up dev tools, and writing simple guides.</p>
         <p>
-          <a href="https://www.code.org/" target="_blank" rel="noopener">code.org</a> ·
-          <a href="https://devpost.com/" target="_blank" rel="noopener">Devpost events</a>
+          <a class="btn" href="https://www.code.org/" target="_blank" rel="noopener">code.org</a>
+          <a class="btn btn-primary" href="https://devpost.com/" target="_blank" rel="noopener">Devpost events</a>
         </p>
       </article>
 
@@ -48,14 +49,14 @@
         <h2>Open Resources</h2>
         <p>Curating notes and mini-tutorials with accessible markup and keyboard navigation in mind.</p>
         <p>
-          <a href="https://stackoverflow.com/" target="_blank" rel="noopener">Stack Overflow</a> ·
-          <a href="https://cse.tamu.edu/" target="_blank" rel="noopener">TAMU CSE</a>
+          <a class="btn" href="https://stackoverflow.com/" target="_blank" rel="noopener">Stack Overflow</a>
+          <a class="btn btn-primary" href="https://cse.tamu.edu/" target="_blank" rel="noopener">TAMU CSE</a>
         </p>
       </article>
     </section>
 
     <section class="cta-band" aria-label="Get involved">
-      <p>Interested in mentoring or workshops? <a href="https://www.linkedin.com/" target="_blank" rel="noopener">Let’s connect</a>.</p>
+      <p>Interested in mentoring or workshops? <a class="btn btn-primary" href="https://www.linkedin.com/" target="_blank" rel="noopener">Let’s connect</a></p>
     </section>
   </main>
 

@@ -41,39 +41,55 @@
   </header>
   <main id="main" class="wrap">
     <h1>Generative AI Showcase</h1>
-    <div class="grid" aria-label="AI output and prompt build">
+    
+    <section class="panel" style="text-align: center; margin-bottom: 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+      <h2 style="margin-top: 0; color: white;">The Prompt That Created This Page</h2>
+      <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px; font-size: 1.1rem; line-height: 1.6; text-align: left;">
+        <strong>Prompt:</strong> "Create a static HTML webpage that demonstrates AI-generated content. The page should have a clean, modern design with inline CSS styling. Include a prominent section at the top showing the exact prompt used to generate the page content. The main content should be an article about how AI can create webpages, explaining the process and benefits. Add a sidebar showing the iterative prompt refinement process with 5 steps. Use a light color scheme with gradients for emphasis. The page should be completely static with no interactive elements - just display the AI-generated content and the prompt that created it. Make it look professional and suitable for a student portfolio website."
+      </div>
+    </section>
+
+    <div class="grid" aria-label="AI output and prompt evolution">
       <section class="panel">
-        <h2>AI Output</h2>
-        <div id="aiOutput" class="output" contenteditable="true">Paste or type the final AI-generated content here.</div>
+        <h2>AI-Generated Content</h2>
+        <div class="output" style="min-height: 400px; padding: 1rem; background: #f9f9f9; border-radius: 6px; line-height: 1.6;">
+          <h3>How AI Creates Webpages: A New Era of Web Development</h3>
+          
+          <p>Artificial intelligence is revolutionizing how webpages are created, making web development more accessible and efficient than ever before. Modern AI systems can generate complete HTML pages, write CSS styling, and even create interactive JavaScript functionality with just a simple text prompt.</p>
+          
+          <p>The process begins with a clear, detailed prompt that describes the desired webpage. AI models like ChatGPT, Claude, and GitHub Copilot can understand natural language instructions and translate them into clean, semantic HTML code. They can create responsive layouts, implement modern design principles, and ensure accessibility standards are met.</p>
+          
+          <p>One of the most powerful aspects of AI webpage generation is its ability to iterate and refine. Developers can ask for specific changes, request different styling approaches, or modify content structure through conversational prompts. This creates a collaborative workflow where human creativity guides the AI's technical implementation.</p>
+          
+          <p>AI-generated webpages often include modern best practices automatically - semantic HTML structure, responsive design principles, and clean CSS organization. The AI can also suggest improvements, optimize code for performance, and ensure cross-browser compatibility without requiring extensive manual testing.</p>
+          
+          <p>This technology is particularly valuable for rapid prototyping, educational purposes, and helping students learn web development concepts. By seeing how AI structures code and implements design patterns, developers can gain insights into best practices and modern web development techniques.</p>
+          
+          <p>As AI continues to evolve, we can expect even more sophisticated webpage generation capabilities, including dynamic content creation, database integration, and complex interactive features - all guided by natural language prompts.</p>
+        </div>
       </section>
+      
       <aside class="panel">
-        <h2>Prompt Build</h2>
-        <ul id="steps" class="steps" aria-live="polite">
-          <li><input type="text" placeholder="Step 1: initial prompt"></li>
-          <li><input type="text" placeholder="Step 2: add constraint/detail"></li>
-          <li><input type="text" placeholder="Step 3: refine tone/format"></li>
-        </ul>
+        <h2>Prompt Evolution</h2>
+        <div style="background: #f9f9f9; padding: 1rem; border-radius: 6px;">
+          <h4>Step 1: Initial Request</h4>
+          <p style="font-size: 0.9rem; color: #666; margin-bottom: 1rem;">"Create a webpage about AI"</p>
+          
+          <h4>Step 2: Add Specificity</h4>
+          <p style="font-size: 0.9rem; color: #666; margin-bottom: 1rem;">"Make it about AI creating webpages"</p>
+          
+          <h4>Step 3: Specify Design</h4>
+          <p style="font-size: 0.9rem; color: #666; margin-bottom: 1rem;">"Use clean design with inline CSS"</p>
+          
+          <h4>Step 4: Add Structure</h4>
+          <p style="font-size: 0.9rem; color: #666; margin-bottom: 1rem;">"Include prompt display and step-by-step process"</p>
+          
+          <h4>Step 5: Final Details</h4>
+          <p style="font-size: 0.9rem; color: #666;">"Make it static and professional for portfolio"</p>
+        </div>
       </aside>
     </div>
-    <div class="controls" role="group" aria-label="Prompt controls">
-      <button class="btn" id="addStep" type="button">Add step</button>
-      <button class="btn" id="copyPrompt" type="button">Copy final prompt</button>
-      <button class="btn" id="clearAll" type="button">Clear</button>
-    </div>
-    <section class="panel">
-      <h2>Final Prompt</h2>
-      <textarea id="finalPrompt" placeholder="Paste the exact final prompt you used here."></textarea>
-    </section>
   </main>
   <footer><small>© 2025 Akul Ranjan</small></footer>
-  <script>
-    const steps=document.getElementById('steps');const finalPrompt=document.getElementById('finalPrompt');
-    try{const sp=localStorage.getItem('ai_final_prompt');if(sp)finalPrompt.value=sp;const ss=JSON.parse(localStorage.getItem('ai_steps')||"[]");if(ss.length){steps.innerHTML="";ss.forEach(t=>{const li=document.createElement('li');const input=document.createElement('input');input.type='text';input.value=t;li.appendChild(input);steps.appendChild(li);});}}catch(e){}
-    function save(){try{const vals=Array.from(steps.querySelectorAll('input')).map(i=>i.value).filter(Boolean);localStorage.setItem('ai_steps',JSON.stringify(vals));localStorage.setItem('ai_final_prompt',finalPrompt.value);}catch(e){}}
-    document.getElementById('addStep').onclick=()=>{const li=document.createElement('li');const input=document.createElement('input');input.type='text';input.placeholder=`Step ${steps.children.length+1}: add detail`;li.appendChild(input);steps.appendChild(li);input.focus();save();};
-    document.getElementById('copyPrompt').onclick=async()=>{try{await navigator.clipboard.writeText(finalPrompt.value||"");}catch(e){}};
-    document.getElementById('clearAll').onclick=()=>{finalPrompt.value="";steps.innerHTML="";save();};
-    steps.addEventListener('input',save);finalPrompt.addEventListener('input',save);
-  </script>
 </body>
 </html>
